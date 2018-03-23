@@ -247,7 +247,7 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
     }];
     
     [self.lockBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.mas_leading).offset(iPhoneX?35:15);
+        make.leading.equalTo(self.mas_leading).offset(15);
         make.centerY.equalTo(self.mas_centerY);
         make.width.height.mas_equalTo(32);
     }];
@@ -499,6 +499,8 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
         self.shrink             = NO;
     }
     self.fullScreen             = YES;
+    [self.backBtn setHidden:NO];
+    [self.titleLabel setHidden:NO];
     self.lockBtn.hidden         = !self.isFullScreen;
     self.fullScreenBtn.selected = self.isFullScreen;
     [self.backBtn setImage:ZFPlayerImage(@"ZFPlayer_back_full") forState:UIControlStateNormal];
@@ -513,6 +515,8 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
  */
 - (void)setOrientationPortraitConstraint {
     self.fullScreen             = NO;
+    [self.backBtn setHidden:YES];
+    [self.titleLabel setHidden:YES];
     self.lockBtn.hidden         = !self.isFullScreen;
     self.fullScreenBtn.selected = self.isFullScreen;
     [self.backBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
@@ -529,6 +533,7 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
 #pragma mark - Private Method
 
 - (void)showControlView {
+    
     self.showing = YES;
     if (self.lockBtn.isSelected) {
         self.topImageView.alpha    = 0;
@@ -1158,5 +1163,13 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
 }
 
 #pragma clang diagnostic pop
+
+-(void)liveHideOption{
+    [self.videoSlider setHidden:YES];
+    [self.totalTimeLabel setHidden:YES];
+    [self.currentTimeLabel setHidden:YES];
+    [self.progressView setHidden:YES];
+    self.dragged = NO;
+}
 
 @end

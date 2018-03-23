@@ -23,8 +23,10 @@
 
 #import <UIKit/UIKit.h>
 #import "ASValueTrackingSlider.h"
-//#import "ZFPlayer.h"
+#import "ZFPlayer.h"
 
-@interface ZFPlayerControlView : UIView 
+@interface ZFPlayerControlView : UIView
+
+-(void)liveHideOption;
 
 @end

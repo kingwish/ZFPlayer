@@ -43,10 +43,14 @@
 /**
  * 显示top、bottom、lockBtn
  */
-- (void)zf_playerShowControlView {}
+- (void)zf_playerShowControlView {
+    NSLog(@"显示");
+}
 /**
  * 隐藏top、bottom、lockBtn*/
-- (void)zf_playerHideControlView {}
+- (void)zf_playerHideControlView {
+    NSLog(@"隐藏");
+}
 
 /**
  * 重置ControlView

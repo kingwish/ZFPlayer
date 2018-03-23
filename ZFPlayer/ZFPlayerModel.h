@@ -56,4 +56,10 @@
  */
 @property (nonatomic, assign) NSInteger    fatherViewTag;
 
+
+/**
+ 是否是直播，默认不是直播
+ */
+@property (nonatomic,assign) BOOL isLive;
+
 @end
