@@ -25,6 +25,14 @@ DEPENDENCIES:
   - SDWebImage
   - ZFDownload
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - ASIHTTPRequest
+    - Masonry
+    - Reachability
+    - SDWebImage
+    - ZFDownload
+
 SPEC CHECKSUMS:
   ASIHTTPRequest: ec013992946676b7978dcbde6396d57312d21db4
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
@@ -34,4 +42,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 9699ea8b1c62377d7aa541453f1bb713e24ea767
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.5.3

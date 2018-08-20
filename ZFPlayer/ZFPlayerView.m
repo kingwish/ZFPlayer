@@ -1486,6 +1486,13 @@ typedef NS_ENUM(NSInteger, PanDirection){
     }
 }
 
+-(void)zf_controlView:(UIView *)controlView joinRoomAction:(UIButton *)sender{
+    if ([self.delegate respondsToSelector:@selector(zf_playerJoinMeetingAction)]) {
+        [self.delegate zf_playerJoinMeetingAction];
+        
+    }
+}
+
 - (void)zf_controlView:(UIView *)controlView backAction:(UIButton *)sender {
     if (ZFPlayerShared.isLockScreen) {
         [self unLockTheScreen];

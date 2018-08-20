@@ -71,6 +71,10 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
 @property (nonatomic, strong) UIView                  *resolutionView;
 /** 播放按钮 */
 @property (nonatomic, strong) UIButton                *playeBtn;
+
+/** 加入会议室 */
+@property (nonatomic, strong) UIButton                *joinRoomBtn;
+
 /** 加载失败按钮 */
 @property (nonatomic, strong) UIButton                *failBtn;
 /** 快进快退View*/
@@ -103,6 +107,8 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
 /** 是否全屏播放 */
 @property (nonatomic, assign,getter=isFullScreen)BOOL fullScreen;
 
+
+
 @end
 
 @implementation ZFPlayerControlView
@@ -127,6 +133,7 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
         [self addSubview:self.activity];
         [self addSubview:self.repeatBtn];
         [self addSubview:self.playeBtn];
+        [self addSubview:self.joinRoomBtn];
         [self addSubview:self.failBtn];
         
         [self addSubview:self.fastView];
@@ -213,6 +220,12 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
         make.leading.equalTo(self.bottomImageView.mas_leading).offset(5);
         make.bottom.equalTo(self.bottomImageView.mas_bottom).offset(-5);
         make.width.height.mas_equalTo(30);
+    }];
+    
+    [self.joinRoomBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.mas_right).offset(-20);
+        make.bottom.equalTo(self.mas_bottom).offset(-20);
+        make.width.height.mas_equalTo(50);
     }];
     
     [self.currentTimeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -308,8 +321,12 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
     UIInterfaceOrientation currentOrientation = [UIApplication sharedApplication].statusBarOrientation;
     if (currentOrientation == UIDeviceOrientationPortrait) {
         [self setOrientationPortraitConstraint];
+        //竖屏
+        [self.joinRoomBtn setHidden:NO];
     } else {
         [self setOrientationLandscapeConstraint];
+        //横屏
+        [self.joinRoomBtn setHidden:YES];
     }
 }
 
@@ -380,6 +397,16 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
         [self.delegate zf_controlView:self lockScreenAction:sender];
     }
 }
+
+- (void)joinRoomBtnClick:(UIButton *)sender {
+    if ([self.delegate respondsToSelector:@selector(zf_controlView:joinRoomAction:)]) {
+        [self.delegate zf_controlView:self joinRoomAction:sender];
+    }
+}
+
+
+
+
 
 - (void)playBtnClick:(UIButton *)sender {
     sender.selected = !sender.selected;
@@ -794,6 +821,15 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
         [_playeBtn addTarget:self action:@selector(centerPlayBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _playeBtn;
+}
+
+- (UIButton *)joinRoomBtn {
+    if (!_joinRoomBtn) {
+        _joinRoomBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_joinRoomBtn setImage:ZFPlayerImage(@"liveInto") forState:UIControlStateNormal];
+        [_joinRoomBtn addTarget:self action:@selector(joinRoomBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _joinRoomBtn;
 }
 
 - (UIButton *)failBtn {

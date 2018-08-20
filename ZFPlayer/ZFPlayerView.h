@@ -31,12 +31,16 @@
 @optional
 /** 返回按钮事件 */
 - (void)zf_playerBackAction;
+
+-(void)zf_playerJoinMeetingAction;
+
 /** 下载视频 */
 - (void)zf_playerDownload:(NSString *)url;
 /** 控制层即将显示 */
 - (void)zf_playerControlViewWillShow:(UIView *)controlView isFullscreen:(BOOL)fullscreen;
 /** 控制层即将隐藏 */
 - (void)zf_playerControlViewWillHidden:(UIView *)controlView isFullscreen:(BOOL)fullscreen;
+
 
 @end
 

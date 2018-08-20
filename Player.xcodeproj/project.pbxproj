@@ -15,6 +15,11 @@
 		49CD65D11BF0C4EC0060DB9E /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49CD65D01BF0C4EC0060DB9E /* MediaPlayer.framework */; };
 		49F272801BF2330700FCC767 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49F2727F1BF2330700FCC767 /* Info.plist */; };
 		6DFFA86AB7DE7145F8B2FDBB /* libPods-Player.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 15E3CE675A5AD72E88B7F01B /* libPods-Player.a */; };
+		9630D1CB212A6DD4009F682E /* UIAlertController+ZFPlayerRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9630D1C5212A6DD4009F682E /* UIAlertController+ZFPlayerRotation.m */; };
+		9630D1CC212A6DD4009F682E /* UITabBarController+ZFPlayerRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9630D1C6212A6DD4009F682E /* UITabBarController+ZFPlayerRotation.m */; };
+		9630D1CD212A6DD4009F682E /* UINavigationController+ZFPlayerRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9630D1C8212A6DD4009F682E /* UINavigationController+ZFPlayerRotation.m */; };
+		9630D1D0212A9433009F682E /* PlayerAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9630D1CF212A9433009F682E /* PlayerAlertView.m */; };
+		9630D1D2212A943F009F682E /* PlayerAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9630D1D1212A943F009F682E /* PlayerAlertView.xib */; };
 		CC220D4A1DB7B504001191C7 /* MMMaterialDesignSpinner.m in Sources */ = {isa = PBXBuildFile; fileRef = CC220D491DB7B504001191C7 /* MMMaterialDesignSpinner.m */; };
 		CC2877CE1D9B60760097CEDA /* UIViewController+ZFPlayerRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2877CB1D9B60760097CEDA /* UIViewController+ZFPlayerRotation.m */; };
 		CC2CC63B1CA24D4B0028BBDD /* ZFBrightnessView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2CC6321CA24D4B0028BBDD /* ZFBrightnessView.m */; };
@@ -91,6 +96,15 @@
 		49CD65D01BF0C4EC0060DB9E /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		49F2727F1BF2330700FCC767 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5025702D2252268F74E00592 /* Pods-Player.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Player.release.xcconfig"; path = "Pods/Target Support Files/Pods-Player/Pods-Player.release.xcconfig"; sourceTree = "<group>"; };
+		9630D1C5212A6DD4009F682E /* UIAlertController+ZFPlayerRotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+ZFPlayerRotation.m"; sourceTree = "<group>"; };
+		9630D1C6212A6DD4009F682E /* UITabBarController+ZFPlayerRotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarController+ZFPlayerRotation.m"; sourceTree = "<group>"; };
+		9630D1C7212A6DD4009F682E /* UIAlertController+ZFPlayerRotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+ZFPlayerRotation.h"; sourceTree = "<group>"; };
+		9630D1C8212A6DD4009F682E /* UINavigationController+ZFPlayerRotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+ZFPlayerRotation.m"; sourceTree = "<group>"; };
+		9630D1C9212A6DD4009F682E /* UITabBarController+ZFPlayerRotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarController+ZFPlayerRotation.h"; sourceTree = "<group>"; };
+		9630D1CA212A6DD4009F682E /* UINavigationController+ZFPlayerRotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+ZFPlayerRotation.h"; sourceTree = "<group>"; };
+		9630D1CE212A9433009F682E /* PlayerAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerAlertView.h; sourceTree = "<group>"; };
+		9630D1CF212A9433009F682E /* PlayerAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayerAlertView.m; sourceTree = "<group>"; };
+		9630D1D1212A943F009F682E /* PlayerAlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerAlertView.xib; sourceTree = "<group>"; };
 		CC220D481DB7B504001191C7 /* MMMaterialDesignSpinner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMMaterialDesignSpinner.h; sourceTree = "<group>"; };
 		CC220D491DB7B504001191C7 /* MMMaterialDesignSpinner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMMaterialDesignSpinner.m; sourceTree = "<group>"; };
 		CC2877CA1D9B60760097CEDA /* UIViewController+ZFPlayerRotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ZFPlayerRotation.h"; sourceTree = "<group>"; };
@@ -253,6 +267,12 @@
 		CC2877C51D9B60760097CEDA /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				9630D1C7212A6DD4009F682E /* UIAlertController+ZFPlayerRotation.h */,
+				9630D1C5212A6DD4009F682E /* UIAlertController+ZFPlayerRotation.m */,
+				9630D1CA212A6DD4009F682E /* UINavigationController+ZFPlayerRotation.h */,
+				9630D1C8212A6DD4009F682E /* UINavigationController+ZFPlayerRotation.m */,
+				9630D1C9212A6DD4009F682E /* UITabBarController+ZFPlayerRotation.h */,
+				9630D1C6212A6DD4009F682E /* UITabBarController+ZFPlayerRotation.m */,
 				CC2877CA1D9B60760097CEDA /* UIViewController+ZFPlayerRotation.h */,
 				CC2877CB1D9B60760097CEDA /* UIViewController+ZFPlayerRotation.m */,
 				CC6FF3661DB4A32E00222AAC /* UIView+CustomControlView.h */,
@@ -295,6 +315,9 @@
 			children = (
 				CC6C7AE31C9BDFE90000AD58 /* MoviePlayerViewController.h */,
 				CC6C7AE41C9BDFE90000AD58 /* MoviePlayerViewController.m */,
+				9630D1CE212A9433009F682E /* PlayerAlertView.h */,
+				9630D1CF212A9433009F682E /* PlayerAlertView.m */,
+				9630D1D1212A943F009F682E /* PlayerAlertView.xib */,
 			);
 			path = PlayerViewController;
 			sourceTree = "<group>";
@@ -402,8 +425,6 @@
 				4947F7871BE996AC003093C8 /* Frameworks */,
 				4947F7881BE996AC003093C8 /* Resources */,
 				CC6132E21CB3A406008A979C /* Embed Frameworks */,
-				1202318A809FA973180E9823 /* [CP] Embed Pods Frameworks */,
-				385D90847BB6F8583952B056 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -461,8 +482,8 @@
 				TargetAttributes = {
 					4947F7891BE996AC003093C8 = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = B9FH944VTE;
-						ProvisioningStyle = Manual;
+						DevelopmentTeam = R79JKXZU78;
+						ProvisioningStyle = Automatic;
 					};
 					4947F7A21BE996AC003093C8 = {
 						CreatedOnToolsVersion = 7.0;
@@ -504,6 +525,7 @@
 				49F272801BF2330700FCC767 /* Info.plist in Resources */,
 				CC48ECD71C8863DB009CF0D0 /* Main.storyboard in Resources */,
 				CC6945AA1CB7F66300452D55 /* LaunchScreen.xib in Resources */,
+				9630D1D2212A943F009F682E /* PlayerAlertView.xib in Resources */,
 				CCE1C1401C9AA131004C95AC /* videoData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -525,49 +547,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1202318A809FA973180E9823 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Player/Pods-Player-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		385D90847BB6F8583952B056 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Player/Pods-Player-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		B07772CE59FFC6AC1342C816 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Player-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -591,16 +586,20 @@
 				CC8693471CC9BF5E0037E71B /* ZFPVideoResolution.m in Sources */,
 				CC7D5E951D59AAAC000AC18A /* ASValueTrackingSlider.m in Sources */,
 				CC2CC63D1CA24D4B0028BBDD /* ZFPlayerControlView.m in Sources */,
+				9630D1CC212A6DD4009F682E /* UITabBarController+ZFPlayerRotation.m in Sources */,
 				CC220D4A1DB7B504001191C7 /* MMMaterialDesignSpinner.m in Sources */,
+				9630D1D0212A9433009F682E /* PlayerAlertView.m in Sources */,
 				CCEF1BF91CACB28E00B0DD78 /* ZFDownloadedCell.m in Sources */,
 				CC6FF40D1DB9DFB300222AAC /* ZFPlayerModel.m in Sources */,
 				CCE1C13E1C9AA128004C95AC /* ZFTableViewController.m in Sources */,
 				CC6FF3681DB4A32E00222AAC /* UIView+CustomControlView.m in Sources */,
 				CCEF1BF41CAA826900B0DD78 /* ZFDownloadingCell.m in Sources */,
 				CCE1C1381C9AA115004C95AC /* ZFPlayerCell.m in Sources */,
+				9630D1CB212A6DD4009F682E /* UIAlertController+ZFPlayerRotation.m in Sources */,
 				CC7D5E961D59AAAC000AC18A /* ASValuePopUpView.m in Sources */,
 				4947F78F1BE996AC003093C8 /* main.m in Sources */,
 				CCC20EAB1E77DA2B0019B9D0 /* UIWindow+CurrentViewController.m in Sources */,
+				9630D1CD212A6DD4009F682E /* UINavigationController+ZFPlayerRotation.m in Sources */,
 				CC2877CE1D9B60760097CEDA /* UIViewController+ZFPlayerRotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -724,15 +723,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = B9FH944VTE;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R79JKXZU78;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = Player/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.renzifeng.Player;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d96e7a87-72df-4670-b8aa-4a1558bd705b";
-				PROVISIONING_PROFILE_SPECIFIER = wildcard_dev;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -741,9 +741,10 @@
 			baseConfigurationReference = 5025702D2252268F74E00592 /* Pods-Player.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R79JKXZU78;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = Player/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -751,6 +752,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.renzifeng.Player;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};

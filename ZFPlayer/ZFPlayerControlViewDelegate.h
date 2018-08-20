@@ -44,6 +44,10 @@
 - (void)zf_controlView:(UIView *)controlView repeatPlayAction:(UIButton *)sender;
 /** 中间播放按钮事件 */
 - (void)zf_controlView:(UIView *)controlView cneterPlayAction:(UIButton *)sender;
+
+/** 加入会议室按钮事件 */
+- (void)zf_controlView:(UIView *)controlView joinRoomAction:(UIButton *)sender;
+
 /** 加载失败按钮事件 */
 - (void)zf_controlView:(UIView *)controlView failAction:(UIButton *)sender;
 /** 下载按钮事件 */
@@ -54,6 +58,7 @@
 - (void)zf_controlView:(UIView *)controlView progressSliderTap:(CGFloat)value;
 /** 开始触摸slider */
 - (void)zf_controlView:(UIView *)controlView progressSliderTouchBegan:(UISlider *)slider;
+
 /** slider触摸中 */
 - (void)zf_controlView:(UIView *)controlView progressSliderValueChanged:(UISlider *)slider;
 /** slider触摸结束 */

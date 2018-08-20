@@ -80,6 +80,10 @@
     return ZFPlayerShared.isStatusBarHidden;
 }
 
+
+
+
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -155,7 +159,7 @@
         // 移除屏幕移除player
         // _playerView.stopPlayWhileCellNotVisable = YES;
 
-        _playerView.forcePortrait = NO;
+//        _playerView.forcePortrait = NO;
 
         ZFPlayerShared.isLockScreen = YES;
         ZFPlayerShared.isStatusBarHidden = NO;
@@ -178,6 +182,11 @@
     [[ZFDownloadManager sharedDownloadManager] downFileUrl:url filename:name fileimage:nil];
     // 设置最多同时下载个数（默认是3）
     [ZFDownloadManager sharedDownloadManager].maxCount = 4;
+}
+
+
+-(void)zf_playerJoinMeetingAction{
+    NSLog(@"加入会议！");
 }
 
 /*
