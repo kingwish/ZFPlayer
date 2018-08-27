@@ -253,13 +253,13 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
     if (self.isLive) {
         [self.joinRoomBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.equalTo(self.mas_right).offset(-10);
-            make.bottom.equalTo(self.mas_bottom).offset(-20);
+            make.bottom.equalTo(self.mas_bottom).offset(-30);
             make.width.height.mas_equalTo(50);
         }];
         
         [self.showMessageBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.equalTo(self.mas_right).offset(-10);
-            make.bottom.equalTo(self.mas_bottom).offset(-20);
+            make.bottom.equalTo(self.mas_bottom).offset(-30);
             make.width.height.mas_equalTo(50);
         }];
     }
@@ -449,8 +449,9 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
     }
     
     if ([self.delegate respondsToSelector:@selector(zf_controlView:fullScreenAction:)]) {
-        [self.delegate zf_controlView:self fullScreenAction:NO];
+        [self.delegate zf_controlView:self fullScreenAction:sender];
     }
+    
 }
 
 -(void)showMessage:(BOOL)flag{
@@ -1054,10 +1055,8 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
  */
 - (void)zf_playerShowControlView {
     if ([self.delegate respondsToSelector:@selector(zf_controlViewWillShow:isFullscreen:)]) {
-        if (!self.isFullScreen) {
-            //如果不是全屏，则它是没有消息状态
-            self.showMessageBtn.selected = NO;
-        }
+        //只要屏幕方向改变了，就清除消息状态
+        self.showMessageBtn.selected = NO;
         [self.delegate zf_controlViewWillShow:self isFullscreen:self.isFullScreen];
     }
     [self zf_playerCancelAutoFadeOutControlView];
