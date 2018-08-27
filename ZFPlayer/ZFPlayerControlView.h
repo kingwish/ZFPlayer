@@ -27,6 +27,10 @@
 
 @interface ZFPlayerControlView : UIView
 
+- (instancetype)initWithIsLive:(BOOL)isLive;
+
 -(void)liveHideOption;
+
+-(void)showMessage:(BOOL) flag;
 
 @end

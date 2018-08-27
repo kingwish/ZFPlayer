@@ -99,6 +99,8 @@ typedef NS_ENUM(NSInteger, ZFPlayerState) {
  */
 - (void)playerControlView:(UIView *)controlView playerModel:(ZFPlayerModel *)playerModel;
 
+-(void)showMessage:(BOOL)flag;
+
 /**
  * 使用自带的控制层时候可使用此API
  */

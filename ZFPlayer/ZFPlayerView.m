@@ -167,6 +167,12 @@ typedef NS_ENUM(NSInteger, PanDirection){
     [self resetPlayer];
 }
 
+-(void)showMessage:(BOOL)flag{
+    ZFPlayerControlView *view = (ZFPlayerControlView *)self.controlView;
+    [view showMessage:flag];
+}
+
+
 #pragma mark - 观察者、通知
 
 /**
@@ -220,7 +226,7 @@ typedef NS_ENUM(NSInteger, PanDirection){
 - (void)playerControlView:(UIView *)controlView playerModel:(ZFPlayerModel *)playerModel {
     if (!controlView) {
         // 指定默认控制层
-        ZFPlayerControlView *defaultControlView = [[ZFPlayerControlView alloc] init];
+        ZFPlayerControlView *defaultControlView = [[ZFPlayerControlView alloc] initWithIsLive:playerModel.isLive];
         self.controlView = defaultControlView;
         if (playerModel.isLive) {
             //直播则隐藏控制条
@@ -1492,6 +1498,7 @@ typedef NS_ENUM(NSInteger, PanDirection){
         
     }
 }
+
 
 - (void)zf_controlView:(UIView *)controlView backAction:(UIButton *)sender {
     if (ZFPlayerShared.isLockScreen) {

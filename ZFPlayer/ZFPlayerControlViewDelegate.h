@@ -48,6 +48,8 @@
 /** 加入会议室按钮事件 */
 - (void)zf_controlView:(UIView *)controlView joinRoomAction:(UIButton *)sender;
 
+- (void)zf_controlView:(UIView *)controlView showMessageAction:(UIButton *)sender;
+
 /** 加载失败按钮事件 */
 - (void)zf_controlView:(UIView *)controlView failAction:(UIButton *)sender;
 /** 下载按钮事件 */

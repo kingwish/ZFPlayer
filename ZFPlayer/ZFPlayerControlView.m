@@ -72,6 +72,9 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
 /** 播放按钮 */
 @property (nonatomic, strong) UIButton                *playeBtn;
 
+/** 显示聊天消息 */
+@property (nonatomic, strong) UIButton                *showMessageBtn;
+
 /** 加入会议室 */
 @property (nonatomic, strong) UIButton                *joinRoomBtn;
 
@@ -107,61 +110,86 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
 /** 是否全屏播放 */
 @property (nonatomic, assign,getter=isFullScreen)BOOL fullScreen;
 
-
+@property (nonatomic,assign) BOOL isLive;
 
 @end
 
 @implementation ZFPlayerControlView
 
+
+- (instancetype)initWithIsLive:(BOOL)isLive
+{
+    self = [super init];
+    if (self) {
+        self.isLive = isLive;
+        [self setup];
+    }
+    return self;
+}
+
 - (instancetype)init {
     self = [super init];
     if (self) {
 
-        [self addSubview:self.placeholderImageView];
-        [self addSubview:self.topImageView];
-        [self addSubview:self.bottomImageView];
-        [self.bottomImageView addSubview:self.startBtn];
-        [self.bottomImageView addSubview:self.currentTimeLabel];
-        [self.bottomImageView addSubview:self.progressView];
-        [self.bottomImageView addSubview:self.videoSlider];
-        [self.bottomImageView addSubview:self.fullScreenBtn];
-        [self.bottomImageView addSubview:self.totalTimeLabel];
+        [self setup];
         
-        [self.topImageView addSubview:self.downLoadBtn];
-        [self addSubview:self.lockBtn];
-        [self.topImageView addSubview:self.backBtn];
-        [self addSubview:self.activity];
-        [self addSubview:self.repeatBtn];
-        [self addSubview:self.playeBtn];
-        [self addSubview:self.joinRoomBtn];
-        [self addSubview:self.failBtn];
-        
-        [self addSubview:self.fastView];
-        [self.fastView addSubview:self.fastImageView];
-        [self.fastView addSubview:self.fastTimeLabel];
-        [self.fastView addSubview:self.fastProgressView];
-        
-        [self.topImageView addSubview:self.resolutionBtn];
-        [self.topImageView addSubview:self.titleLabel];
-        [self addSubview:self.closeBtn];
-        [self addSubview:self.bottomProgressView];
-        
-        // 添加子控件的约束
-        [self makeSubViewsConstraints];
-        
-        self.downLoadBtn.hidden     = YES;
-        self.resolutionBtn.hidden   = YES;
-        // 初始化时重置controlView
-        [self zf_playerResetControlView];
-        // app退到后台
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appDidEnterBackground) name:UIApplicationWillResignActiveNotification object:nil];
-        // app进入前台
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appDidEnterPlayground) name:UIApplicationDidBecomeActiveNotification object:nil];
-
-        [self listeningRotating];
     }
     return self;
 }
+
+
+-(void)setup{
+    [self addSubview:self.placeholderImageView];
+    [self addSubview:self.topImageView];
+    [self addSubview:self.bottomImageView];
+    [self.bottomImageView addSubview:self.startBtn];
+    [self.bottomImageView addSubview:self.currentTimeLabel];
+    [self.bottomImageView addSubview:self.progressView];
+    [self.bottomImageView addSubview:self.videoSlider];
+    [self.bottomImageView addSubview:self.fullScreenBtn];
+    [self.bottomImageView addSubview:self.totalTimeLabel];
+    
+    [self.topImageView addSubview:self.downLoadBtn];
+    [self addSubview:self.lockBtn];
+    [self.topImageView addSubview:self.backBtn];
+    [self addSubview:self.activity];
+    [self addSubview:self.repeatBtn];
+    [self addSubview:self.playeBtn];
+    
+    
+    
+    if (self.isLive) {
+        [self addSubview:self.joinRoomBtn];
+        [self addSubview:self.showMessageBtn];
+    }
+    
+    [self addSubview:self.failBtn];
+    
+    [self addSubview:self.fastView];
+    [self.fastView addSubview:self.fastImageView];
+    [self.fastView addSubview:self.fastTimeLabel];
+    [self.fastView addSubview:self.fastProgressView];
+    
+    [self.topImageView addSubview:self.resolutionBtn];
+    [self.topImageView addSubview:self.titleLabel];
+    [self addSubview:self.closeBtn];
+    [self addSubview:self.bottomProgressView];
+    
+    // 添加子控件的约束
+    [self makeSubViewsConstraints];
+    
+    self.downLoadBtn.hidden     = YES;
+    self.resolutionBtn.hidden   = YES;
+    // 初始化时重置controlView
+    [self zf_playerResetControlView];
+    // app退到后台
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appDidEnterBackground) name:UIApplicationWillResignActiveNotification object:nil];
+    // app进入前台
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appDidEnterPlayground) name:UIApplicationDidBecomeActiveNotification object:nil];
+    
+    [self listeningRotating];
+}
+
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
@@ -222,11 +250,19 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
         make.width.height.mas_equalTo(30);
     }];
     
-    [self.joinRoomBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self.mas_right).offset(-20);
-        make.bottom.equalTo(self.mas_bottom).offset(-20);
-        make.width.height.mas_equalTo(50);
-    }];
+    if (self.isLive) {
+        [self.joinRoomBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.equalTo(self.mas_right).offset(-10);
+            make.bottom.equalTo(self.mas_bottom).offset(-20);
+            make.width.height.mas_equalTo(50);
+        }];
+        
+        [self.showMessageBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.equalTo(self.mas_right).offset(-10);
+            make.bottom.equalTo(self.mas_bottom).offset(-20);
+            make.width.height.mas_equalTo(50);
+        }];
+    }
     
     [self.currentTimeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.startBtn.mas_trailing).offset(-3);
@@ -323,10 +359,12 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
         [self setOrientationPortraitConstraint];
         //竖屏
         [self.joinRoomBtn setHidden:NO];
+        [self.showMessageBtn setHidden:YES];
     } else {
         [self setOrientationLandscapeConstraint];
         //横屏
         [self.joinRoomBtn setHidden:YES];
+        [self.showMessageBtn setHidden:NO];
     }
 }
 
@@ -404,6 +442,24 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
     }
 }
 
+
+-(void)showMessageBtnClick:(UIButton *)sender{
+    if ([self.delegate respondsToSelector:@selector(zf_controlView:showMessageAction:)]) {
+        [self.delegate zf_controlView:self showMessageAction:sender];
+    }
+    
+    if ([self.delegate respondsToSelector:@selector(zf_controlView:fullScreenAction:)]) {
+        [self.delegate zf_controlView:self fullScreenAction:NO];
+    }
+}
+
+-(void)showMessage:(BOOL)flag{
+    if (flag) {
+        _showMessageBtn.selected = YES;
+    }else{
+        _showMessageBtn.selected = NO;
+    }
+}
 
 
 
@@ -823,6 +879,16 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
     return _playeBtn;
 }
 
+-(UIButton *)showMessageBtn{
+    if (!_showMessageBtn) {
+        _showMessageBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_showMessageBtn setImage:ZFPlayerImage(@"messageNormal") forState:UIControlStateNormal];
+        [_showMessageBtn setImage:ZFPlayerImage(@"message") forState:UIControlStateSelected];
+        [_showMessageBtn addTarget:self action:@selector(showMessageBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _showMessageBtn;
+}
+
 - (UIButton *)joinRoomBtn {
     if (!_joinRoomBtn) {
         _joinRoomBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -988,6 +1054,10 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
  */
 - (void)zf_playerShowControlView {
     if ([self.delegate respondsToSelector:@selector(zf_controlViewWillShow:isFullscreen:)]) {
+        if (!self.isFullScreen) {
+            //如果不是全屏，则它是没有消息状态
+            self.showMessageBtn.selected = NO;
+        }
         [self.delegate zf_controlViewWillShow:self isFullscreen:self.isFullScreen];
     }
     [self zf_playerCancelAutoFadeOutControlView];
